@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+class Board extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      boardData : [
+      0,0,3,0,2,0,6,0,0,
+      9,0,0,3,0,5,0,0,1,
+      0,0,1,8,0,6,4,0,0,
+      0,0,8,1,0,2,9,0,0,
+      7,0,0,0,0,0,0,0,8,
+      0,0,6,7,0,8,2,0,0,
+      0,0,2,6,0,9,5,0,0,
+      8,0,0,2,0,3,0,0,9,
+      0,0,5,0,1,0,3,0,0
+      ]
+    };
+  };
+
+  render(){
+    return <div>
+      Here is the board data: {this.state.boardData}
+    </div>;
+  };
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Board />
     </div>
   );
 }
