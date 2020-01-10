@@ -1,6 +1,22 @@
 import React from 'react';
 import './App.css';
 
+function Header(){
+  return(
+    <div className="board-header">
+      <h1>Sudoku</h1>
+    </div>
+  );
+};
+
+function Cell(props){
+  return(
+      <div className="cell">
+      {props.number}
+      </div>
+  );
+};
+
 class Board extends React.Component{
   constructor(props){
     super(props);
@@ -20,15 +36,26 @@ class Board extends React.Component{
   };
 
   render(){
-    return <div>
-      Here is the board data: {this.state.boardData}
-    </div>;
+    return (
+      <div className="sudoku-board">
+	{
+	  this.state.boardData.map((item) => {
+	    if(item !== 0){
+	      return <Cell number={item} />
+	    } else {
+	      return <Cell number=" " />;
+	    }
+	  })
+	}
+      </div>
+    );
   };
 };
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Board />
     </div>
   );
