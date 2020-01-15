@@ -1,0 +1,27 @@
+.locked-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0eb;
+    border-style: solid;
+    border-color: #0059b3;
+    border-width: thin;
+    flex: 1 0 auto;
+    text-align: center;
+    line-height: 50px;
+}
+
+.playable-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #e6f2ff;
+    border-style: solid;
+    border-color: #0059b3;
+    border-width: thin;
+    flex: 1 0 auto;
+    text-align: center;
+    line-height: 50px;
+}
+
+.selected-cell{
+
+};

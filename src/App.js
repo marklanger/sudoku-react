@@ -1,5 +1,18 @@
 import React from 'react';
+import Board from './Board.js';
+
 import './App.css';
+
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Board />
+      <Directions />
+    </div>
+  );
+}
 
 function Header(){
   return(
@@ -9,56 +22,22 @@ function Header(){
   );
 };
 
-function Cell(props){
+function Directions(){
   return(
-      <div className="cell">
-      {props.number}
-      </div>
-  );
-};
-
-class Board extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      boardData : [
-      0,0,3,0,2,0,6,0,0,
-      9,0,0,3,0,5,0,0,1,
-      0,0,1,8,0,6,4,0,0,
-      0,0,8,1,0,2,9,0,0,
-      7,0,0,0,0,0,0,0,8,
-      0,0,6,7,0,8,2,0,0,
-      0,0,2,6,0,9,5,0,0,
-      8,0,0,2,0,3,0,0,9,
-      0,0,5,0,1,0,3,0,0
-      ]
-    };
-  };
-
-  render(){
-    return (
-      <div className="sudoku-board">
-	{
-	  this.state.boardData.map((item) => {
-	    if(item !== 0){
-	      return <Cell number={item} />
-	    } else {
-	      return <Cell number=" " />;
-	    }
-	  })
-	}
-      </div>
-    );
-  };
-};
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Board />
+    <div className="directions">
+    <h3>Directions</h3>
+    <p>
+    Each row, column, and square of nine tiles needs to contain the digits 1-9.<br />
+    There may be no repeated digits in any row, column, or square.
+    </p>
+    <ul>
+    <li>Select a tile and add a number.</li>
+    <li>Gray tiles are the starting tiles.</li>
+    <li>Press SPACE or 0 to remove a number.</li>
+    <li>Click the "check" button to check for issues.</li>
+    </ul>
     </div>
   );
-}
+};
 
 export default App;
