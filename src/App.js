@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from './Board.js';
+import Board from './components/Board.js';
 
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Board />
-      <Directions />
+      <GameDirections />
     </div>
   );
 }
@@ -22,7 +22,7 @@ function Header(){
   );
 };
 
-function Directions(){
+function GameDirections(){
   return(
     <div className="directions">
     <h3>Directions</h3>

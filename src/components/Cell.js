@@ -13,7 +13,7 @@ export default class Cell extends React.Component{
       <div className="locked-cell" id={this.props.id}>
       {this.props.number}
       </div>
-      )
+      );
     } else {
       return(
       <div className="playable-cell" id={this.props.id}>
