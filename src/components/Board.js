@@ -18,7 +18,7 @@ export default class Board extends React.Component{
 	{
 	  this.state.boardData.map((item) => {
 	    return(
-	      <Cell id={item[0]} number={item[1]} />
+	      <Cell id={item.id} number={item.value} key={item.id.toString()} status={item.status} />
 	    );
 	  })
 	}
