@@ -1,0 +1,15 @@
+** To Do List
+*** Refactor
+**** TODO Refactor data structure
+     - React apparently does not like nested data, which makes accessing and changing state a bit of a nightmare given my current setup
+     - https://stackoverflow.com/questions/43040721/how-to-update-nested-state-properties-in-react#51136076
+**** TODO Update toggleCell() method (see above on data structure)
+**** TODO Typescript
+*** Feature
+**** TODO Enter number
+**** TODO Space or 0 removes a number
+**** TODO Check for/highlight conflicts
+**** TODO Solve
+**** TODO Hints
+**** TODO Tests
+*** Bug

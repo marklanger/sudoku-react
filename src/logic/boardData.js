@@ -1,7 +1,7 @@
 let cell = function(){
   this.id = 0;
-  this.value = 0;
-  this.focused = false;
+  this.value = '';
+  this.toggled = false;
   this.status = "playable-cell";
 };
 
@@ -19,14 +19,12 @@ const game1 = [
 
 let board = game1.map((item, index) => {
   let boardCell = new cell();
-  boardCell.value = item;
-  if (boardCell.value !== 0) {
-    boardCell.status = "locked-cell"
+  if (item !== 0) {
+    boardCell.value = item;
+    boardCell.status = "locked-cell";
   }
   boardCell.id = index;
   return boardCell;
 });
-
-// let board = game1.map((item, index) => [index, item]);
 
 export default board;

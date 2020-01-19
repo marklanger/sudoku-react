@@ -28,6 +28,7 @@
     line-height: 50px;
 }
 
-.selected-cell{
-
+.toggled{
+    /* background-color: #ffcccc; */
+    background-color: #c2f0c2;
 };

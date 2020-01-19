@@ -1,6 +1,6 @@
 import React from 'react';
-import Cell from './Cell.js';
 import board from '../logic/boardData.js';
+import Cell from './Cell.js'
 
 let boardData = board;
 
@@ -8,8 +8,25 @@ export default class Board extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      boardData : boardData
+      boardData : boardData,
+      toggled : ''
     };
+    this.toggleCell = this.toggleCell.bind(this);
+  };
+
+  toggleCell(id, e){
+    if (this.state.toggled !== ''){
+      let originallyToggledCell = this.state.toggled;
+      this.setState(prevState => {
+	return boardData[originallyToggledCell].toggled = !prevState.boardData[originallyToggledCell].toggled
+      })
+    }
+    this.setState( prevState => {
+      return boardData[id].toggled = !prevState.boardData[id].toggled
+    });
+    this.setState( prevState => {
+      return { toggled : id }
+    });
   };
 
   render(){
@@ -18,7 +35,13 @@ export default class Board extends React.Component{
 	{
 	  this.state.boardData.map((item) => {
 	    return(
-	      <Cell id={item.id} number={item.value} key={item.id.toString()} status={item.status} />
+	      <Cell
+	        key={item.id.toString()}
+	        id={item.id}
+	        className={item.status + ' ' + (item.toggled ? 'toggled' : '')}
+	        onClick={(e) => this.toggleCell(item.id, e)}
+	        value={item.value}
+	      />
 	    );
 	  })
 	}
