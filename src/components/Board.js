@@ -12,6 +12,7 @@ export default class Board extends React.Component{
       toggled : ''
     };
     this.toggleCell = this.toggleCell.bind(this);
+    this.updateValue = this.updateValue.bind(this);
   };
 
   toggleCell(id, e){
@@ -29,6 +30,19 @@ export default class Board extends React.Component{
     });
   };
 
+  updateValue(id, e){
+    e.persist();
+    if(/[1-9]/.test(e.key)){
+      this.setState(prevState => {
+	return boardData[id].value = e.key;
+      });
+    } else if (e.key === 'Delet' || e.key === 'Backspace'){
+      this.setState(prevState => {
+        return boardData[id].value = '';
+      });
+    }
+  };
+
   render(){
     return (
       <div className="sudoku-board">
@@ -40,6 +54,8 @@ export default class Board extends React.Component{
 	        id={item.id}
 	        className={item.status + ' ' + (item.toggled ? 'toggled' : '')}
 	        onClick={(e) => this.toggleCell(item.id, e)}
+	        tabIndex='0'
+	        onKeyDown={(e) => this.updateValue(item.id, e)}
 	        value={item.value}
 	      />
 	    );
