@@ -32,3 +32,11 @@
     /* background-color: #ffcccc; */
     background-color: #c2f0c2;
 };
+
+.bottom-border{
+    border-bottom-width: thick;
+}
+
+.right-border{
+    border-right-width: thick;
+}

@@ -8,7 +8,7 @@
 }
 
 .sudoku-board {
-    width: 470px;
+    width: 480px;
     height: 470px;
     margin: 0 auto;
     display: flex;

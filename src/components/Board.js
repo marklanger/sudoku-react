@@ -38,7 +38,7 @@ export default class Board extends React.Component{
 	      <Cell
 	        key={item.id.toString()}
 	        id={item.id}
-	        className={item.status + ' ' + (item.toggled ? 'toggled' : '')}
+	        className={item.status + ' ' + item.border + ' ' + (item.toggled ? 'toggled' : '')}
 	        onClick={(e) => this.toggleCell(item.id, e)}
 	        value={item.value}
 	      />
