@@ -40,3 +40,11 @@
 .right-border{
     border-right-width: thick;
 }
+
+div:nth-child(n+19):nth-child(-n+27) {
+    border-bottom-width: thick;
+}
+
+div:nth-child(n+46):nth-child(-n+54) {
+    border-bottom-width: thick;
+}
