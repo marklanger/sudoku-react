@@ -33,7 +33,7 @@ function GameDirections(){
     <ul>
     <li>Select a tile and add a number.</li>
     <li>Gray tiles are the starting tiles.</li>
-    <li>Press SPACE or 0 to remove a number.</li>
+    <li>Press Backspace or Delete to remove a number.</li>
     <li>Click the "check" button to check for issues.</li>
     </ul>
     </div>
