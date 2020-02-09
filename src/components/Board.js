@@ -1,14 +1,15 @@
 import React from 'react';
-import board from '../logic/boardData.js';
+import boardBuilder from '../logic/boardBuilder.js';
 import Cell from './Cell.js'
+import { game1 } from '../logic/data.js'
 
-let boardData = board;
+let board = boardBuilder(game1);
 
 export default class Board extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      boardData : boardData,
+      board : board,
       toggled : ''
     };
     this.toggleCell = this.toggleCell.bind(this);
@@ -19,11 +20,11 @@ export default class Board extends React.Component{
     if (this.state.toggled !== ''){
       let originallyToggledCell = this.state.toggled;
       this.setState(prevState => {
-	return boardData[originallyToggledCell].toggled = !prevState.boardData[originallyToggledCell].toggled
+	return board[originallyToggledCell].toggled = !prevState.board[originallyToggledCell].toggled
       })
     }
     this.setState( prevState => {
-      return boardData[id].toggled = !prevState.boardData[id].toggled
+      return board[id].toggled = !prevState.board[id].toggled
     });
     this.setState( prevState => {
       return { toggled : id }
@@ -34,11 +35,11 @@ export default class Board extends React.Component{
     e.persist();
     if(/[1-9]/.test(e.key)){
       this.setState(prevState => {
-	return boardData[id].value = e.key;
+	return board[id].value = e.key;
       });
     } else if (e.key === 'Delet' || e.key === 'Backspace'){
       this.setState(prevState => {
-        return boardData[id].value = '';
+        return board[id].value = '';
       });
     }
   };
@@ -47,7 +48,7 @@ export default class Board extends React.Component{
     return (
       <div className="sudoku-board">
 	{
-	  this.state.boardData.map((item) => {
+	  this.state.board.map((item) => {
 	    return(
 	      <Cell
 	        key={item.id.toString()}
