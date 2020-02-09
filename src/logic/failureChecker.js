@@ -1,7 +1,7 @@
 import { cellsInSquares } from './data.js';
 
-function boardDoesNotFail(board, cellsInSquares){
-  return squaresDoNotFail(board, cellsInSquares) &&
+function boardPassesTests(board){
+  return squaresDoNotFail(board) &&
          rowsDoNotFail(board) && 
          columnsDoNotFail(board)
 };
@@ -41,7 +41,8 @@ function columnsDoNotFail(board){
   return true;
 };
 
-function squaresDoNotFail(board, refsForSquares){
+function squaresDoNotFail(board){
+  const refsForSquares = cellsInSquares;
   for (let squareId = 1; squareId < 10; squareId++){
     let listOfUsedVals = [];
     for (let boxRef = 0; boxRef < 9; boxRef++){
@@ -57,9 +58,9 @@ function squaresDoNotFail(board, refsForSquares){
   return true
 };
 
-module.exports = {
-  boardDoesNotFail: boardDoesNotFail,
-  rowsDoNotFail: rowsDoNotFail,
-  columnsDoNotFail: columnsDoNotFail,
-  squaresDoNotFail: squaresDoNotFail
+export {
+  boardPassesTests,
+  rowsDoNotFail,
+  columnsDoNotFail,
+  squaresDoNotFail
 };

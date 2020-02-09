@@ -1,7 +1,7 @@
-import { boardDoesNotFail, rowsDoNotFail, columnsDoNotFail, squaresDoNotFail } from './failureChecker.js';
+import { boardPassesTests, rowsDoNotFail, columnsDoNotFail, squaresDoNotFail } from './failureChecker.js';
 
 import boardBuilder from './boardBuilder.js';
-import { game1, cellsInSquares } from './data.js';
+import { game1 } from './data.js';
 
 let board = boardBuilder(game1);
 
@@ -51,37 +51,37 @@ describe('The squaresDoNotFail function', () => {
   });
   
   test('should return true for initial board', () => {
-    expect(squaresDoNotFail(board, cellsInSquares)).toEqual(true);
+    expect(squaresDoNotFail(board)).toEqual(true);
   })
 
   test('should return false if two "1s" in first square', () => {
     board[0]['value'] = 2;
     board[19]['value'] = 2;
-    expect(squaresDoNotFail(board, cellsInSquares)).toEqual(false);
+    expect(squaresDoNotFail(board)).toEqual(false);
   });
 
   test('should return false if two "9s" in last square', () => {
     board[62]['value'] = 9;
     board[69]['value'] = 9;
-    expect(squaresDoNotFail(board, cellsInSquares)).toEqual(false);
+    expect(squaresDoNotFail(board)).toEqual(false);
     board[62]['value'] = '';
     board[69]['value'] = '';
   });
 });
 
-describe('The boardDoesNotFail function', () =>{
+describe('The boardPassesTests function', () =>{
 
   beforeEach(() => {
     board = boardBuilder(game1);
   });
 
   test('should return true for initial board', () => {
-    expect(boardDoesNotFail(board, cellsInSquares)).toEqual(true);
+    expect(boardPassesTests(board)).toEqual(true);
   });
 
   test('should return false if two "1s" in first row', () => {
     board[0]['value'] = 1;
     board[1]['value'] = 1;
-    expect(boardDoesNotFail(board, cellsInSquares)).toEqual(false);
+    expect(boardPassesTests(board)).toEqual(false);
   });
 });
