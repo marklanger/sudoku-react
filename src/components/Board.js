@@ -1,5 +1,6 @@
 import React from 'react';
 import boardBuilder from '../logic/boardBuilder.js';
+import solveBoard from '../logic/boardSolver.js';
 import Cell from './Cell.js'
 import { game1 } from '../logic/data.js'
 
@@ -14,6 +15,7 @@ export default class Board extends React.Component{
     };
     this.toggleCell = this.toggleCell.bind(this);
     this.updateValue = this.updateValue.bind(this);
+    this.solveBoard = this.solveBoard.bind(this);
   };
 
   toggleCell(id, e){
@@ -44,6 +46,13 @@ export default class Board extends React.Component{
     }
   };
 
+  solveBoard(){
+    board = solveBoard(board);
+    this.setState(
+      {board: board}
+    )
+  };
+
   render(){
     return (
       <div className="sudoku-board">
@@ -62,6 +71,7 @@ export default class Board extends React.Component{
 	    );
 	  })
 	}
+      <button onClick={() => this.solveBoard()}>Solve</button>
       </div>
     );
   };
