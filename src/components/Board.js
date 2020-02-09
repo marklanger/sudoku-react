@@ -1,8 +1,9 @@
 import React from 'react';
-import boardData from '../logic/boardData.js';
+import boardBuilder from '../logic/boardBuilder.js';
 import Cell from './Cell.js'
+import { game1 } from '../logic/data.js'
 
-let board = boardData;
+let board = boardBuilder(game1);
 
 export default class Board extends React.Component{
   constructor(props){
