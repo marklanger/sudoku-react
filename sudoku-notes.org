@@ -13,10 +13,13 @@
 **** DONE Enter number
 **** DONE Delete removes a number
 **** TODO Check for/highlight conflicts
-**** TODO Solve
+**** DONE Solve
 **** TODO Hints
 **** TODO Tests
 *** Bug
 **** DONE Fix border delineation for 3x3 squares
      - Currently delineate the 3x3 boxes with two border-width rules in CSS (a right hand border for certain cells, and a bottom for others).
      - I created a "right-border" and a "bottom-border" class, but I cannot get both to be used. Whichever class is at the bottom of the css file will be used and the other ignored.
+**** TODO Solveboard does not work if player inserts its own values
+     - solve board at the beginning and store separately
+**** TODO Check for failure does not seem to consider the starting values
