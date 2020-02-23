@@ -36,6 +36,9 @@ export default class Board extends React.Component{
 
   handleKey(id, e){
     e.persist();
+    if(board[id]['status'] === "locked-cell"){
+      return;
+    };
     // if a number, update value of the cell to be the number
     if(/[1-9]/.test(e.key)){
       this.setState(prevState => {
