@@ -82,4 +82,4 @@ const game2solved = [
   1,3,9,7,4,8,2,5,6
 ];
 
-export { game1, game1solved, cellsInSquares };
+export { game1, game1solved, cellsInSquares, cellsInRows, cellsInColumns };

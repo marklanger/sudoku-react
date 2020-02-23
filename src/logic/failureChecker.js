@@ -1,12 +1,12 @@
 import { cellsInRows, cellsInColumns, cellsInSquares } from './data.js';
 
 function boardPassesTests(board){
-  return sectionDoesNotFail(board, cellsInRows) &&
-         sectionDoesNotFail(board, cellsInColumns) && 
-         sectionDoesNotFail(board, cellsInSquares)
+  return sectionsDoNotFail(board, cellsInRows) &&
+         sectionsDoNotFail(board, cellsInColumns) && 
+         sectionsDoNotFail(board, cellsInSquares)
 };
 
-function sectionDoesNotFail(board, referenceCells){
+function sectionsDoNotFail(board, referenceCells){
   const refsForSquares = cellsInSquares;
   for (let squareId = 1; squareId < 10; squareId++){
     let listOfUsedVals = [];
@@ -25,7 +25,5 @@ function sectionDoesNotFail(board, referenceCells){
 
 export {
   boardPassesTests,
-  rowsDoNotFail,
-  columnsDoNotFail,
-  squaresDoNotFail
+  sectionsDoNotFail
 };
